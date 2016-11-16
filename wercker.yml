@@ -1,6 +1,6 @@
 dev:
   # The container definition we want to use for developing our app
-  box: golang
+  box: golang:1.7.3
   steps:
     - internal/watch:
         code: |
@@ -10,7 +10,7 @@ dev:
 
 build:
   # The container definition we want to use for building our app
-  box: golang
+  box: golang:1.7.3
   steps:
     - wercker/golint
     - script:
@@ -23,7 +23,7 @@ build:
 
 deploy:
   # The container definition we want to use to run our app
-  box: golang:1.7.3-alpine
+  box: golang:1.7.3-wheezy
   steps:
     - internal/docker-push:
         author: "M.-Leander Reimer <mario-leander.reimer@qaware.de>"
