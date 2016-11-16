@@ -1,11 +1,35 @@
-# The container definition we want to use for developing our app
-box: golang
-
-# Defining the dev pipeline
 dev:
+  # The container definition we want to use for developing our app
+  box: golang
   steps:
     - internal/watch:
         code: |
-          go build -o cloud-native-go
+          CGO_ENABLED=0 go build -o cloud-native-go
           ./cloud-native-go
         reload: true
+
+build:
+  # The container definition we want to use for building our app
+  box: golang
+  steps:
+    - wercker/golint
+    - script:
+        name: go build
+        code: |
+          CGO_ENABLED=0 go build -o cloud-native-go
+    - script:
+        name: copy binary
+        code: cp cloud-native-go "$WERCKER_OUTPUT_DIR"
+
+deploy:
+  # The container definition we want to use to run our app
+  box: golang:1.7.3-alpine
+  steps:
+    - internal/docker-push:
+        author: "M.-Leander Reimer <mario-leander.reimer@qaware.de>"
+        username: $USERNAME
+        password: $PASSWORD
+        repository: lreimer/cloud-native-go
+        registry: https://registry.hub.docker.com
+        entrypoint: /pipeline/source/cloud-native-go
+        ports: "8080"

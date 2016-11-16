@@ -29,11 +29,15 @@ In case you want to give Wercker a try (make sure you have the Wercker CLI insta
 can issue the following command:
 
 ```shell
-$ wercker wercker dev --publish 8080 
+$ wercker dev --publish 8080 
 ```
 
-This will build and run the microservice, and also watch for changes to the sources.
+This will build and run the microservice, and also watch for changes to the sources. If you only
+want to run the Wercker build pipeline use the following command:
 
+```shell
+$ wercker build 
+```
 
 == Running the showcase
 
