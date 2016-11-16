@@ -1,0 +1,11 @@
+# The container definition we want to use for developing our app
+box: golang
+
+# Defining the dev pipeline
+dev:
+  steps:
+    - internal/watch:
+        code: |
+          go build -o cloud-native-go
+          ./cloud-native-go
+        reload: true

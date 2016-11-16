@@ -14,14 +14,26 @@ In order to build and run this showcase you need to have a couple of things inst
 * The Go SDK (using Brew)
 * The Docker Toolbox or native Docker, whatever you prefer
 * The Make tool (optional)
+* The Wercker CLI (optional)
 
 == Building the showcase
 
-In case you have make installed you can simply issue:
+In case you have make installed you can simply issue the following command to build and
+install the application:
 
 ```shell
 $ make install
 ```
+
+In case you want to give Wercker a try (make sure you have the Wercker CLI installed) you
+can issue the following command:
+
+```shell
+$ wercker wercker dev --publish 8080 
+```
+
+This will build and run the microservice, and also watch for changes to the sources.
+
 
 == Running the showcase
 
@@ -32,9 +44,13 @@ $ make docker
 $ docker run -it -p 8080:8080 cloud-native-go:1.0.0
 ```
 
+Now open a browser or use somethin like `curl` or `HTTPie` and issue a GET request on the
+URL http://192.168.99.100:8080/api/hello
+
 == References
 
 * https://gokit.io[Go Kit: A toolkit for microservices]
+* http://www.wercker.com/cli/install/osx[Install the Wercker CLI]
 
 == Maintainer
 
