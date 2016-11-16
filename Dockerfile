@@ -4,7 +4,7 @@ ENV SOURCES /go/src/github.com/lreimer/cloud-native-go/
 
 COPY . ${SOURCES}
 
-RUN cd ${SOURCES} && go install
+RUN cd ${SOURCES} && go install -a
 
 ENTRYPOINT cloud-native-go
 EXPOSE 8080
