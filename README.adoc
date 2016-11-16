@@ -1,0 +1,45 @@
+image:https://travis-ci.org/lreimer/cloud-native-go.svg?branch=master["Build Status", link="https://travis-ci.org/lreimer/cloud-native-go"]
+image:https://img.shields.io/badge/license-MIT%20License-blue.svg["MIT License", link=https://github.com/lreimer/cloud-native-javaee/blob/master/LICENSE"]
+
+= Cloud Native Go Showcase
+
+This is actually my first time I wrote something using the Go language.
+So I tried writing a small microservice with a super simple hello API. 
+The next iteration will use the Go Kit for more sophisticated features. 
+
+== Prerequisites
+
+In order to build and run this showcase you need to have a couple of things installed:
+
+* The Go SDK (using Brew)
+* The Docker Toolbox or native Docker, whatever you prefer
+* The Make tool (optional)
+
+== Building the showcase
+
+In case you have make installed you can simply issue:
+
+```shell
+$ make install
+```
+
+== Running the showcase
+
+You have two options. Either build and run the showcase locally, or build and run the Docker image.
+
+```shell
+$ make docker
+$ docker run -it -p 8080:8080 cloud-native-go:1.0.0
+```
+
+== References
+
+* https://gokit.io[Go Kit: A toolkit for microservices]
+
+== Maintainer
+
+M.-Leander Reimer (@lreimer)
+
+== License
+
+This software is provided under the MIT open source license, read the `LICENSE` file for details.
