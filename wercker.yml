@@ -23,7 +23,7 @@ build:
 
 deploy:
   # The container definition we want to use to run our app
-  box: golang:1.7.3-wheezy
+  box: alpine:3.4
   steps:
     - internal/docker-push:
         author: "M.-Leander Reimer <mario-leander.reimer@qaware.de>"
