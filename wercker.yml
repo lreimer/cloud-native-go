@@ -23,12 +23,15 @@ build:
 
 deploy:
   # The container definition we want to use to run our app
-  box: alpine:3.4
+  box: 
+    id: golang:1.7.3-wheezy
+    cmd: /bin/sh
   steps:
     - internal/docker-push:
         author: "M.-Leander Reimer <mario-leander.reimer@qaware.de>"
         username: $USERNAME
         password: $PASSWORD
+        tag: $WERCKER_GIT_COMMIT
         repository: lreimer/cloud-native-go
         registry: https://registry.hub.docker.com
         entrypoint: /pipeline/source/cloud-native-go
