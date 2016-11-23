@@ -35,8 +35,8 @@ deploy:
         author: "M.-Leander Reimer <mario-leander.reimer@qaware.de>"
         username: $USERNAME
         password: $PASSWORD
-        tag: 1.0.0 latest
         repository: lreimer/cloud-native-go
+        tag: 1.0.0 $WERCKER_GIT_COMMIT latest 
         registry: https://registry.hub.docker.com
         entrypoint: /pipeline/source/cloud-native-go
         ports: "8080"
