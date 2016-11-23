@@ -1,6 +1,6 @@
 dev:
   # The container definition we want to use for developing our app
-  box: golang:1.7.3
+  box: golang:1.7.3-alpine
   steps:
     - internal/watch:
         code: |
@@ -10,7 +10,7 @@ dev:
 
 build:
   # The container definition we want to use for building our app
-  box: golang:1.7.3
+  box: golang:1.7.3-alpine
   steps:
     - wercker/golint
     - script:
@@ -31,7 +31,7 @@ deploy:
         author: "M.-Leander Reimer <mario-leander.reimer@qaware.de>"
         username: $USERNAME
         password: $PASSWORD
-        tag: $WERCKER_GIT_COMMIT
+        tag: 1.0.0 latest
         repository: lreimer/cloud-native-go
         registry: https://registry.hub.docker.com
         entrypoint: /pipeline/source/cloud-native-go
