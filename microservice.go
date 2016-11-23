@@ -8,7 +8,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", handler)
-	http.HandleFunc("/api/hello", about)
+	http.HandleFunc("/api/hello", hello)
 	http.ListenAndServe(":8080", nil)
 }
 
@@ -21,7 +21,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Welcome to Cloud Native Go.")
 }
 
-func about(w http.ResponseWriter, r *http.Request) {
+func hello(w http.ResponseWriter, r *http.Request) {
 
 	m := Hello{"Welcome to Cloud Native Go."}
 	b, err := json.Marshal(m)
