@@ -24,7 +24,7 @@ build:
 deploy:
   # The container definition we want to use to run our app
   box: 
-    id: golang:1.7.3-wheezy
+    id: alpine:3.4
     cmd: /bin/sh
   steps:
     - internal/docker-push:
