@@ -46,6 +46,9 @@ deploy:
     - script:
         name: generate json
         code: chmod +x marathon.sh && ./marathon.sh
+    - script:
+        name: install curl
+        code: apk upgrade && apk update && apk add curl
     - wercker/marathon-deploy:
         marathon-url: $MARATHON_URL
         app-name: $APP_NAME
