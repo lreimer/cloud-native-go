@@ -2,7 +2,7 @@
 cat > $APP_NAME.json <<EOF
 {
     "id": "/$APP_NAME",
-    "instances": $INSTANCES,
+    "instances": 3,
     "container": {
         "type": "DOCKER",
         "docker": {
@@ -11,7 +11,7 @@ cat > $APP_NAME.json <<EOF
             "forcePullImage": true,
             "portMappings": [
                 {
-                    "containerPort": $CONTAINER_PORT,
+                    "containerPort": 8080,
                     "hostPort": 0,
                     "protocol": "tcp"
                 }
