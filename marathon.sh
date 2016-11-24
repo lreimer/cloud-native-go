@@ -6,7 +6,7 @@ cat > $APP_NAME.json <<EOF
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "$APP_IMAGE",
+            "image": "lreimer/cloud-native-go:$WERCKER_GIT_COMMIT",
             "network": "BRIDGE",
             "forcePullImage": true,
             "portMappings": [
