@@ -24,6 +24,9 @@ build:
     - script:
         name: copy binary
         code: cp cloud-native-go "$WERCKER_OUTPUT_DIR"
+    - script:
+        name: copy marathon script
+        code: cp marathon.sh "$WERCKER_OUTPUT_DIR"
 
 deploy:
   # The container definition we want to use to run our app
@@ -42,7 +45,7 @@ deploy:
         ports: "8080"
     - script:
         name: generate json
-        code: chmod +x template.sh && ./template.sh
+        code: chmod +x marathon.sh && ./marathon.sh
     - wercker/marathon-deploy:
         marathon-url: $MARATHON_URL
         app-name: $APP_NAME
