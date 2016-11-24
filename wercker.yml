@@ -40,9 +40,12 @@ deploy:
         registry: https://registry.hub.docker.com
         entrypoint: /pipeline/source/cloud-native-go
         ports: "8080"
+    - script:
+        name: generate json
+        code: chmod +x template.sh && ./template.sh
     - wercker/marathon-deploy:
         marathon-url: $MARATHON_URL
-        app-name: cloud-native-go
-        app-json-file: marathon.json
+        app-name: $APP_NAME
+        app-json-file: $APP_NAME.json
         instances: "3"
         auth-token: $MARATHON_AUTH_TOKEN
