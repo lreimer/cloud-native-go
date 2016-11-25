@@ -33,4 +33,3 @@ cat > $APP_NAME.json <<EOF
     "mem": 64.0,
     "disk": 0
 }]
-EOF
