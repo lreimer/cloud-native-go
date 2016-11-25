@@ -1,7 +1,7 @@
 #!/bin/sh
 cat > $APP_NAME.json <<EOF
-{
-    "id": "/$APP_NAME",
+[{
+    "id": "$APP_NAME",
     "instances": 3,
     "container": {
         "type": "DOCKER",
@@ -9,11 +9,14 @@ cat > $APP_NAME.json <<EOF
             "image": "lreimer/cloud-native-go:$WERCKER_GIT_COMMIT",
             "network": "BRIDGE",
             "forcePullImage": true,
+            "privileged": false,
             "portMappings": [
                 {
                     "containerPort": 8080,
-                    "hostPort": 0,
-                    "protocol": "tcp"
+                    "protocol": "tcp",
+                    "labels": {
+                        "VIP_0": "cloud-native-go:8080"
+                    }
                 }
             ]
         }
@@ -26,8 +29,8 @@ cat > $APP_NAME.json <<EOF
         "timeoutSeconds": 10,
         "maxConsecutiveFailures": 2
     }],
-    "ports": [0],
     "cpus": 0.5,
-    "mem": 64.0
-}
+    "mem": 64.0,
+    "disk": 0
+}]
 EOF
