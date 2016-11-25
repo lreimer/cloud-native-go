@@ -23,7 +23,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func hello(w http.ResponseWriter, r *http.Request) {
 
-	m := Hello{"Welcome to Cloud Native Go."}
+	m := Hello{"Welcome to Cloud Native Go. Hallo Sonja."}
 	b, err := json.Marshal(m)
 
 	if err != nil {
