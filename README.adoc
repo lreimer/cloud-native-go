@@ -5,7 +5,8 @@ image:https://img.shields.io/badge/license-MIT%20License-blue.svg["MIT License",
 
 This is actually my first time I wrote something using the Go language.
 So I tried writing a small microservice with a super simple hello API. 
-The next iteration will use the Go Kit for more sophisticated features. 
+The next iteration will use the Go Kit or Go Micro for more sophisticated 
+integration features. 
 
 == Prerequisites
 
@@ -54,6 +55,7 @@ URL http://192.168.99.100:8080/api/hello
 == References
 
 * https://gokit.io[Go Kit: A toolkit for microservices]
+* https://github.com/micro/go-micro[Go microservice framework]
 * http://www.wercker.com/cli/install/osx[Install the Wercker CLI]
 
 == Maintainer
