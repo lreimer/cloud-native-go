@@ -46,11 +46,11 @@ You have two options. Either build and run the showcase locally, or build and ru
 
 ```shell
 $ make docker
-$ docker run -it -p 8080:8080 cloud-native-go:1.0.0
+$ docker run --name cloud-native-go -it -p 18080:8080 cloud-native-go:1.0.1
 ```
 
 Now open a browser or use somethin like `curl` or `HTTPie` and issue a GET request on the
-URL http://192.168.99.100:8080/api/hello
+URL http://192.168.99.100:18080/api/hello
 
 == References
 
