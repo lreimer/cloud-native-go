@@ -52,6 +52,22 @@ $ docker run --name cloud-native-go -it -p 18080:8080 cloud-native-go:1.0.1
 Now open a browser or use somethin like `curl` or `HTTPie` and issue a GET request on the
 URL http://192.168.99.100:18080/api/hello
 
+== Deploying to Kubernetes
+
+We will be using Minikube to run a small Kubernetes cluster locally. Make sure you have build
+the Docker image locally.
+
+```shell
+$ kubectl create -f k8s-deployment.yml
+$ kubectl get deployments pods
+$ kubectl scale deployment cloud-native-go --replicas=3
+$ kubectl get pods
+$ kubectl get services
+```
+
+If you want to access the Go microservice you need to use the node port displayed by the last
+command, e.g. `http GET 192.168.99.100:32278/api/hello`
+
 == References
 
 * https://gokit.io[Go Kit: A toolkit for microservices]
