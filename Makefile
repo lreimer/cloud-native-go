@@ -1,4 +1,4 @@
-NAME = cloud-native-go:1.0.0
+NAME = cloud-native-go:1.0.1
 
 default: build
 
@@ -10,3 +10,6 @@ build:
 
 install: 
 	CGO_ENABLED=0 go install -a ./...
+
+clean:
+	rm cloud-native-go
