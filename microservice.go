@@ -7,8 +7,10 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/", index)
 	http.HandleFunc("/api/hello", hello)
+	http.HandleFunc("/api/echo", echo)
+
 	http.ListenAndServe(":8080", nil)
 }
 
@@ -17,8 +19,15 @@ type Hello struct {
 	Message string
 }
 
-func handler(w http.ResponseWriter, r *http.Request) {
+func index(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Welcome to Cloud Native Go.")
+}
+
+func echo(w http.ResponseWriter, r *http.Request) {
+	message := r.URL.Query()["message"][0]
+
+	w.Header().Add("Content-Type", "text/plain")
+	fmt.Fprintf(w, message)
 }
 
 func hello(w http.ResponseWriter, r *http.Request) {
