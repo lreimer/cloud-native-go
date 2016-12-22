@@ -49,9 +49,9 @@ deploy:
     - script:
         name: install curl
         code: apk upgrade && apk update && apk add curl
-    - wercker/marathon-deploy:
-        marathon-url: $MARATHON_URL
-        app-name: $APP_NAME
-        app-json-file: $APP_NAME.json
-        instances: "3"
-        auth-token: $MARATHON_AUTH_TOKEN
+#    - wercker/marathon-deploy:
+#        marathon-url: $MARATHON_URL
+#        app-name: $APP_NAME
+#        app-json-file: $APP_NAME.json
+#        instances: "3"
+#        auth-token: $MARATHON_AUTH_TOKEN
