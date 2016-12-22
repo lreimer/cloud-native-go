@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: cloud-native-go
-        image: "cloud-native-go:1.0.1"
+        image: "cloud-native-go:1.1.0"
         resources:
           requests:
             memory: "64Mi"

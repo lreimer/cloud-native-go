@@ -32,7 +32,7 @@ func echo(w http.ResponseWriter, r *http.Request) {
 
 func hello(w http.ResponseWriter, r *http.Request) {
 
-	m := Hello{"Welcome to Cloud Native Go on Kubernetes."}
+	m := Hello{"Welcome to Cloud Native Go."}
 	b, err := json.Marshal(m)
 
 	if err != nil {

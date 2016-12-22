@@ -1,4 +1,4 @@
-NAME = cloud-native-go:1.0.1
+NAME = cloud-native-go:1.1.0
 
 default: build
 

@@ -39,7 +39,7 @@ deploy:
         username: $USERNAME
         password: $PASSWORD
         repository: lreimer/cloud-native-go
-        tag: 1.0.1 $WERCKER_GIT_COMMIT latest 
+        tag: 1.1.0 $WERCKER_GIT_COMMIT latest 
         registry: https://registry.hub.docker.com
         entrypoint: /pipeline/source/cloud-native-go
         ports: "8080"
