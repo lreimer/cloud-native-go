@@ -18,6 +18,9 @@ build:
   steps:
     - wercker/golint
     - script:
+        name: install git
+        code: apk upgrade && apk update && apk add git
+    - script:
         name: go build
         code: |
           go get github.com/lreimer/cloud-native-go
