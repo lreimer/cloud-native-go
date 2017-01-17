@@ -18,11 +18,9 @@ build:
   steps:
     - wercker/golint
     - script:
-        name: go get api
-        code: github.com/lreimer/cloud-native-go/api
-    - script:
         name: go build
         code: |
+          go get github.com/lreimer/cloud-native-go
           CGO_ENABLED=0 go build -o cloud-native-go
     - script:
         name: copy binary
