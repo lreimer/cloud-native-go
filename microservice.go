@@ -1,44 +1,33 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"net/http"
+	"os"
+
+	"github.com/lreimer/cloud-native-go/api"
 )
 
 func main() {
 	http.HandleFunc("/", index)
-	http.HandleFunc("/api/hello", hello)
-	http.HandleFunc("/api/echo", echo)
+	http.HandleFunc("/api/echo", api.EchoHandleFunc)
+	http.HandleFunc("/api/hello", api.HelloHandleFunc)
 
-	http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/api/books", api.BooksHandleFunc)
+	http.HandleFunc("/api/books/", api.BookHandleFunc)
+
+	http.ListenAndServe(port(), nil)
 }
 
-// Hello response structure
-type Hello struct {
-	Message string
+func port() string {
+	port := os.Getenv("PORT")
+	if len(port) == 0 {
+		port = "8080"
+	}
+	return ":" + port
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, "Welcome to Cloud Native Go.")
-}
-
-func echo(w http.ResponseWriter, r *http.Request) {
-	message := r.URL.Query()["message"][0]
-
-	w.Header().Add("Content-Type", "text/plain")
-	fmt.Fprintf(w, message)
-}
-
-func hello(w http.ResponseWriter, r *http.Request) {
-
-	m := Hello{"Welcome to Cloud Native Go."}
-	b, err := json.Marshal(m)
-
-	if err != nil {
-		panic(err)
-	}
-
-	w.Header().Add("Content-Type", "application/json; charset=utf-8")
-	w.Write(b)
 }
