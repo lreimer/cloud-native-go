@@ -93,6 +93,7 @@ func writeJSON(w http.ResponseWriter, i interface{}) {
 	w.Write(b)
 }
 
+// GetBook returns the book for a given ISBN
 func GetBook(isbn string) (Book, bool) {
 	book, found := books[isbn]
 	return book, found
