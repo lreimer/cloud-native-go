@@ -1,7 +1,7 @@
 dev:
   # The container definition we want to use for developing our app
   box: 
-    id: golang:1.7.3-alpine
+    id: golang:1.8.1-alpine
     cmd: /bin/sh
   steps:
     - internal/watch:
@@ -13,7 +13,7 @@ dev:
 build:
   # The container definition we want to use for building our app
   box: 
-    id: golang:1.7.3-alpine
+    id: golang:1.8.1-alpine
     cmd: /bin/sh
   steps:
     - wercker/golint
