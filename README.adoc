@@ -73,6 +73,7 @@ command, e.g. `http GET 192.168.99.100:32278/api/hello`
 * https://gokit.io[Go Kit: A toolkit for microservices]
 * https://github.com/micro/go-micro[Go microservice framework]
 * http://www.wercker.com/cli/install/osx[Install the Wercker CLI]
+* https://www.packtpub.com/application-development/getting-started-cloud-native-go[Packt Video Course]
 
 == Maintainer
 
