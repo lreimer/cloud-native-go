@@ -1,4 +1,3 @@
-image:https://app.wercker.com/status/d328097234e34e6b8b7ee19eb8e963a5/s/master["Wercker Status", link="https://app.wercker.com/project/byKey/d328097234e34e6b8b7ee19eb8e963a5"]
 image:https://img.shields.io/badge/license-MIT%20License-blue.svg["MIT License", link=https://github.com/lreimer/cloud-native-javaee/blob/master/LICENSE"]
 
 = Cloud Native Go Showcase
